@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FinCalc Pro — Free USA Financial Calculators 2024</title>
+<meta name="description" content="Free financial calculators for Americans — mortgage, tax, investment, loan, retirement, and budget tools. Updated for 2024 IRS rules. No sign-up required.">
+<meta name="keywords" content="mortgage calculator, tax calculator, 401k calculator, loan calculator, compound interest calculator, budget planner, capital gains tax, financial calculator USA">
+<meta name="robots" content="index, follow">
+<meta name="author" content="FinCalc Pro">
+<link rel="canonical" href="https://fincalcpro.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="FinCalc Pro — Free USA Financial Calculators 2024">
+<meta property="og:description" content="Free financial calculators for Americans. Mortgage, tax, investment, retirement, and budget tools updated for 2024.">
+<meta property="og:url" content="https://fincalcpro.com/">
+<meta property="og:site_name" content="FinCalc Pro">
+<meta property="og:image" content="https://fincalcpro.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FinCalc Pro — Free USA Financial Calculators">
+<meta name="twitter:description" content="Free mortgage, tax, investment, and budget calculators for Americans.">
+
+<!-- Schema.org WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FinCalc Pro",
+  "url": "https://fincalcpro.com",
+  "description": "Free financial calculators for Americans",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://fincalcpro.com/?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Schema.org Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FinCalc Pro",
+  "url": "https://fincalcpro.com",
+  "logo": "https://fincalcpro.com/logo.png",
+  "sameAs": []
+}
+</script>
+
+<!-- Schema.org FAQ (for blog/calculator pages) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is mortgage payment calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly mortgage payment is calculated using: M = P[r(1+r)^n]/[(1+r)^n-1], where P is loan principal, r is monthly interest rate, and n is number of payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the 2024 federal income tax brackets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2024, single filers pay 10% on income up to $11,600, 12% up to $47,150, 22% up to $100,525, 24% up to $191,950, 32% up to $243,725, 35% up to $609,350, and 37% above that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I save for retirement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Financial advisors typically recommend saving 15% of pre-tax income for retirement, including any employer match. The 401(k) contribution limit for 2024 is $23,000."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0C1117;
+  --bg2: #131A23;
+  --bg3: #1A2332;
+  --card: #1E2A3A;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --accent: #00D4A0;
+  --accent2: #00B389;
+  --accent-dim: rgba(0,212,160,0.12);
+  --accent-glow: rgba(0,212,160,0.25);
+  --text: #F0F4F8;
+  --text2: #8FA3B8;
+  --text3: #5A7A96;
+  --danger: #FF6B6B;
+  --warn: #FFB347;
+  --info: #60A5FA;
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --r: 12px;
+  --r-lg: 18px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--ff-body); font-size: 15px; line-height: 1.6; min-height: 100vh; }
+
+/* ===== NAV ===== */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(12,17,23,0.95); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { font-family: var(--ff-display); font-size: 20px; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; cursor: pointer; text-decoration: none; }
+.nav-brand span { color: var(--text); }
+.nav-links { display: flex; gap: 4px; }
+@media(max-width:768px){ .nav-links { display:none; } }
+.nav-link { background: none; border: none; color: var(--text2); font-family: var(--ff-body); font-size: 13px; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: all 0.15s; }
+.nav-link:hover { color: var(--text); background: var(--bg3); }
+.nav-link.active { color: var(--accent); background: var(--accent-dim); }
+.nav-cta { background: var(--accent); color: #001A12; font-family: var(--ff-body); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+.nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+/* ===== PAGES ===== */
+.page { display: none; min-height: calc(100vh - 60px); }
+.page.active { display: block; }
+
+/* ===== HERO ===== */
+.hero { padding: 80px 24px 60px; max-width: 900px; margin: 0 auto; text-align: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-dim); border: 1px solid rgba(0,212,160,0.2); color: var(--accent); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: 24px; }
+.hero h1 { font-family: var(--ff-display); font-size: clamp(32px, 6vw, 60px); font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; color: var(--text); margin-bottom: 20px; }
+.hero h1 em { color: var(--accent); font-style: normal; }
+.hero p { font-size: 17px; color: var(--text2); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+.hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 32px; }
+.stat { text-align: center; }
+.stat-num { font-family: var(--ff-display); font-size: 28px; font-weight: 700; color: var(--text); }
+.stat-label { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.hero-search { max-width: 440px; margin: 0 auto; position: relative; }
+.hero-search input { width: 100%; background: var(--card); border: 1px solid var(--border2); color: var(--text); font-family: var(--ff-body); font-size: 15px; padding: 13px 48px 13px 18px; border-radius: 12px; outline: none; transition: border-color 0.15s; }
+.hero-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.hero-search input::placeholder { color: var(--text3); }
+.hero-search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 18px; pointer-events: none; }
+
+/* ===== CALC GRID ===== */
+.section { padding: 0 24px 60px; max-width: 1100px; margin: 0 auto; }
+.section-title { font-family: var(--ff-display); font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.section-sub { font-size: 14px; color: var(--text2); margin-bottom: 28px; }
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.calc-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
+.calc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+.calc-card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.calc-card:hover::before { opacity: 1; }
+.calc-icon { width: 40px; height: 40px; background: var(--accent-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+.calc-name { font-family: var(--ff-display); font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.calc-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.calc-tag { display: inline-block; margin-top: 10px; font-size: 11px; padding: 2px 8px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); font-weight: 500; }
+
+/* ===== CALCULATOR PAGE ===== */
+.calc-page-wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+.back-btn { background: none; border: 1px solid var(--border2); color: var(--text2); font-family: var(--ff-body); font-size: 13px; padding: 7px 14px; border-radius: 8px; cursor: pointer; margin-bottom: 32px; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s; }
+.back-btn:hover { color: var(--text); background: var(--bg3); }
+.calc-header { margin-bottom: 32px; }
+.calc-header-tag { font-size: 12px; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.calc-header h2 { font-family: var(--ff-display); font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+.calc-header p { color: var(--text2); font-size: 15px; }
+.calc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+@media(max-width:600px){ .calc-body { grid-template-columns: 1fr; } }
+.calc-inputs { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; }
+.calc-results { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; position: sticky; top: 80px; }
+
+/* ===== FORM ===== */
+.form-group { margin-bottom: 18px; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--text2); margin-bottom: 6px; display: block; letter-spacing: 0.3px; }
+.form-input { width: 100%; background: var(--bg3); border: 1px solid var(--border2); color: var(--text); font-family: var(--ff-body); font-size: 15px; padding: 10px 14px; border-radius: 8px; transition: border-color 0.15s; outline: none; }
+.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.input-prefix { position: relative; }
+.input-prefix .form-input { padding-left: 32px; }
+.input-prefix::before { content: attr(data-prefix); position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 14px; pointer-events: none; }
+.form-select { width: 100%; background: var(--bg3); border: 1px solid var(--border2); color: var(--text); font-family: var(--ff-body); font-size: 15px; padding: 10px 14px; border-radius: 8px; outline: none; appearance: none; cursor: pointer; }
+.calc-btn { width: 100%; background: var(--accent); color: #001A12; font-family: var(--ff-display); font-size: 15px; font-weight: 600; padding: 13px; border: none; border-radius: 10px; cursor: pointer; transition: all 0.15s; margin-top: 8px; }
+.calc-btn:hover { background: var(--accent2); transform: translateY(-1px); }
+
+/* ===== RESULTS ===== */
+.result-main { text-align: center; padding: 20px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.result-label { font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.result-value { font-family: var(--ff-display); font-size: 36px; font-weight: 700; color: var(--accent); letter-spacing: -1px; }
+.result-sub { font-size: 13px; color: var(--text2); margin-top: 4px; }
+.result-rows { display: flex; flex-direction: column; gap: 10px; }
+.result-row { display: flex; justify-content: space-between; align-items: center; }
+.result-row-label { font-size: 13px; color: var(--text2); }
+.result-row-val { font-size: 14px; font-weight: 500; color: var(--text); }
+.result-row-val.accent { color: var(--accent); }
+.result-row-val.danger { color: var(--danger); }
+
+/* ===== AFFILIATE BANNER ===== */
+.aff-banner { margin-top: 20px; background: linear-gradient(135deg, rgba(0,212,160,0.1), rgba(0,100,200,0.08)); border: 1px solid rgba(0,212,160,0.2); border-radius: var(--r); padding: 16px; }
+.aff-banner-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.aff-banner-sub { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
+.aff-btn { display: inline-block; background: var(--accent); color: #001A12; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 7px; text-decoration: none; transition: background 0.15s; cursor: pointer; border: none; font-family: var(--ff-body); }
+.aff-btn:hover { background: var(--accent2); }
+
+/* ===== ADS ===== */
+.ad-slot { background: var(--bg3); border: 1px dashed var(--border2); border-radius: var(--r); padding: 16px; text-align: center; color: var(--text3); font-size: 12px; margin: 20px 0; min-height: 90px; display: flex; align-items: center; justify-content: center; }
+.ad-slot-wide { min-height: 120px; }
+.ad-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+/* ===== RELATED CALCS ===== */
+.related-section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+.related-title { font-size: 14px; font-weight: 600; color: var(--text2); margin-bottom: 12px; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.related-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.15s; }
+.related-card:hover { border-color: var(--border2); background: var(--card); }
+.related-card-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.related-card-desc { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+/* ===== BLOG ===== */
+.blog-hero { padding: 60px 24px 40px; max-width: 900px; margin: 0 auto; }
+.blog-hero h1 { font-family: var(--ff-display); font-size: clamp(28px,5vw,44px); font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
+.blog-hero p { color: var(--text2); font-size: 16px; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; padding: 0 24px 60px; max-width: 1100px; margin: 0 auto; }
+.blog-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; cursor: pointer; transition: all 0.2s; }
+.blog-card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.blog-cat { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.blog-title { font-family: var(--ff-display); font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 10px; line-height: 1.35; }
+.blog-excerpt { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+.blog-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--text3); }
+.blog-read-time { background: var(--bg3); padding: 2px 8px; border-radius: 20px; }
+
+/* ===== BLOG POST ===== */
+.blog-post-wrap { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+.blog-post-wrap h1 { font-family: var(--ff-display); font-size: clamp(24px,4vw,38px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 16px; }
+.blog-post-wrap .post-meta { font-size: 13px; color: var(--text3); margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.blog-post-wrap h2 { font-family: var(--ff-display); font-size: 22px; font-weight: 600; margin: 36px 0 14px; color: var(--text); }
+.blog-post-wrap h3 { font-family: var(--ff-display); font-size: 18px; font-weight: 600; margin: 28px 0 10px; color: var(--text); }
+.blog-post-wrap p { color: var(--text2); line-height: 1.8; margin-bottom: 18px; font-size: 15px; }
+.blog-post-wrap ul, .blog-post-wrap ol { color: var(--text2); line-height: 1.8; margin-bottom: 18px; padding-left: 24px; font-size: 15px; }
+.blog-post-wrap li { margin-bottom: 6px; }
+.blog-post-wrap strong { color: var(--text); font-weight: 600; }
+.blog-post-wrap .callout { background: var(--accent-dim); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 24px 0; }
+.blog-post-wrap .callout p { color: var(--text); margin: 0; font-size: 14px; }
+.blog-post-wrap .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+.blog-post-wrap .data-table th { text-align: left; padding: 10px 12px; background: var(--bg3); color: var(--text2); font-weight: 500; border-bottom: 1px solid var(--border2); }
+.blog-post-wrap .data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text2); }
+.blog-post-wrap .data-table tr:last-child td { border-bottom: none; }
+.cta-inline { background: linear-gradient(135deg, rgba(0,212,160,0.12), rgba(0,100,200,0.08)); border: 1px solid rgba(0,212,160,0.25); border-radius: var(--r); padding: 20px 24px; margin: 28px 0; display: flex; flex-direction: column; gap: 10px; }
+.cta-inline h4 { font-family: var(--ff-display); font-size: 16px; font-weight: 600; color: var(--text); }
+.cta-inline p { color: var(--text2); font-size: 13px; margin: 0; line-height: 1.5; }
+
+/* ===== TRUST BAR ===== */
+.trust-bar { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 24px; margin-bottom: 0; }
+.trust-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text2); }
+.trust-icon { font-size: 18px; }
+
+/* ===== NEWSLETTER ===== */
+.newsletter-section { background: var(--bg2); border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; }
+.newsletter-inner { max-width: 480px; margin: 0 auto; }
+.newsletter-inner h3 { font-family: var(--ff-display); font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.newsletter-inner p { color: var(--text2); font-size: 14px; margin-bottom: 20px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input { flex: 1; background: var(--bg3); border: 1px solid var(--border2); color: var(--text); font-family: var(--ff-body); font-size: 14px; padding: 11px 16px; border-radius: 8px; outline: none; }
+.newsletter-form input:focus { border-color: var(--accent); }
+.newsletter-form button { background: var(--accent); color: #001A12; font-weight: 600; font-size: 14px; padding: 11px 20px; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap; font-family: var(--ff-body); }
+.newsletter-msg { font-size: 13px; color: var(--accent); margin-top: 10px; display: none; }
+
+/* ===== FOOTER ===== */
+footer { border-top: 1px solid var(--border); padding: 48px 24px 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+@media(max-width:768px){ .footer-inner { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px){ .footer-inner { grid-template-columns: 1fr; } }
+.footer-brand p { font-size: 13px; color: var(--text3); line-height: 1.7; margin-top: 10px; max-width: 260px; }
+.footer-col h4 { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li button { background: none; border: none; color: var(--text3); font-size: 13px; cursor: pointer; padding: 0; font-family: var(--ff-body); transition: color 0.15s; text-align: left; }
+.footer-col ul li button:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px; }
+.footer-bottom p { font-size: 12px; color: var(--text3); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links button { background: none; border: none; color: var(--text3); font-size: 12px; cursor: pointer; font-family: var(--ff-body); }
+.footer-links button:hover { color: var(--text2); }
+
+/* ===== PRIVACY / ABOUT / DISCLAIMER ===== */
+.policy-wrap { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+.policy-wrap h1 { font-family: var(--ff-display); font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.policy-wrap .policy-date { font-size: 13px; color: var(--text3); margin-bottom: 32px; }
+.policy-wrap h2 { font-family: var(--ff-display); font-size: 20px; font-weight: 600; margin: 28px 0 10px; }
+.policy-wrap p, .policy-wrap ul { color: var(--text2); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+.policy-wrap ul { padding-left: 24px; }
+
+/* ===== SEARCH RESULTS ===== */
+.search-results { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+.search-results h2 { font-family: var(--ff-display); font-size: 22px; margin-bottom: 20px; }
+.search-result-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; margin-bottom: 10px; cursor: pointer; transition: all 0.15s; }
+.search-result-item:hover { border-color: var(--border2); }
+.sri-title { font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+.sri-desc { font-size: 13px; color: var(--text2); }
+
+/* ===== TABLE ===== */
+.amort-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 16px; }
+.amort-table th { text-align: left; color: var(--text3); font-weight: 500; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.amort-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); color: var(--text2); }
+.table-wrap { max-height: 200px; overflow-y: auto; margin-top: 12px; border: 1px solid var(--border); border-radius: 8px; }
+.table-wrap::-webkit-scrollbar { width: 4px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb { font-size: 12px; color: var(--text3); margin-bottom: 20px; }
+.breadcrumb span { cursor: pointer; }
+.breadcrumb span:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 6px; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a class="nav-brand" onclick="showPage('home')" href="#" role="button" aria-label="FinCalc Pro Home">FinCalc<span>Pro</span></a>
+  <div class="nav-links">
+    <button class="nav-link" onclick="showPage('home')">Calculators</button>
+    <button class="nav-link" onclick="showPage('blog')">Blog</button>
+    <button class="nav-link" onclick="showPage('about')">About</button>
+  </div>
+  <button class="nav-cta" onclick="showPage('home')">All Tools</button>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+  <main>
+  <div class="hero">
+    <div class="hero-eyebrow">🇺🇸 Updated for 2024 Tax Year</div>
+    <h1>Make smarter<br><em>money decisions</em></h1>
+    <p>Free financial calculators for every stage of your money journey. No sign-up, no ads blocking results — just accurate numbers.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">16</div><div class="stat-label">Free calculators</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free forever</div></div>
+      <div class="stat"><div class="stat-num">2024</div><div class="stat-label">IRS rates</div></div>
+      <div class="stat"><div class="stat-num">USA</div><div class="stat-label">Focused</div></div>
+    </div>
+    <div class="hero-search">
+      <input type="text" id="search-input" placeholder="Search calculators... (e.g. mortgage, tax)" oninput="handleSearch(this.value)" onkeydown="if(event.key==='Enter')doSearch()">
+      <span class="hero-search-icon">🔍</span>
+    </div>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">🔒</span> No data stored</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> Instant results</div>
+      <div class="trust-item"><span class="trust-icon">📅</span> 2024 IRS rates</div>
+      <div class="trust-item"><span class="trust-icon">📱</span> Mobile friendly</div>
+      <div class="trust-item"><span class="trust-icon">✅</span> No sign-up needed</div>
+    </div>
+  </div>
+
+  <!-- Ad Slot Top -->
+  <div class="section" style="padding-top:32px;padding-bottom:0">
+    <div class="ad-slot ad-slot-wide">
+      <div><div class="ad-label">Advertisement</div>AdSense 728×90 Leaderboard — Replace with: &lt;ins class="adsbygoogle"...&gt;</div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:40px">
+    <div class="section-title">🏠 Loan & Mortgage Calculators</div>
+    <div class="section-sub">Plan your home purchase, estimate payments, and compare loan scenarios.</div>
+    <div class="calc-grid">
+      <div class="calc-card" onclick="showCalc('mortgage')">
+        <div class="calc-icon">🏠</div>
+        <div class="calc-name">Mortgage Calculator</div>
+        <div class="calc-desc">Monthly payment, total interest, and full amortization schedule.</div>
+        <div class="calc-tag">Most popular</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('affordability')">
+        <div class="calc-icon">💰</div>
+        <div class="calc-name">Home Affordability</div>
+        <div class="calc-desc">Maximum home price based on income, debt, and down payment.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('autoloan')">
+        <div class="calc-icon">🚗</div>
+        <div class="calc-name">Auto Loan Calculator</div>
+        <div class="calc-desc">Monthly car payment with interest, tax, and true cost of ownership.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('studentloan')">
+        <div class="calc-icon">🎓</div>
+        <div class="calc-name">Student Loan Calculator</div>
+        <div class="calc-desc">Monthly payment, payoff date, and total interest on student debt.</div>
+        <div class="calc-tag">New</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('debtpayoff')">
+        <div class="calc-icon">💳</div>
+        <div class="calc-name">Debt Payoff Calculator</div>
+        <div class="calc-desc">Avalanche vs snowball method — fastest path to debt freedom.</div>
+        <div class="calc-tag">New</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📋 Tax Calculators</div>
+    <div class="section-sub">Estimate your 2024 federal tax bill before filing season hits.</div>
+    <div class="calc-grid">
+      <div class="calc-card" onclick="showCalc('tax')">
+        <div class="calc-icon">📋</div>
+        <div class="calc-name">Federal Income Tax</div>
+        <div class="calc-desc">2024 estimate using real IRS brackets — single, married, or HOH.</div>
+        <div class="calc-tag">2024 rates</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('selfemploy')">
+        <div class="calc-icon">💼</div>
+        <div class="calc-name">Self-Employment Tax</div>
+        <div class="calc-desc">SE tax, quarterly estimates, and deductions for 1099 workers.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('capitalgains')">
+        <div class="calc-icon">📈</div>
+        <div class="calc-name">Capital Gains Tax</div>
+        <div class="calc-desc">Tax on stocks, crypto, or real estate — short vs long term.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('paycheck')">
+        <div class="calc-icon">💵</div>
+        <div class="calc-name">Paycheck Calculator</div>
+        <div class="calc-desc">Take-home pay after federal tax, FICA, and state withholding.</div>
+        <div class="calc-tag">New</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ad slot mid -->
+  <div class="section" style="padding-bottom:0">
+    <div class="ad-slot">
+      <div><div class="ad-label">Advertisement</div>AdSense 300×250 Rectangle — Replace with Google AdSense code</div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:40px">
+    <div class="section-title">📊 Investing & Retirement</div>
+    <div class="section-sub">See the power of compounding and plan your retirement with confidence.</div>
+    <div class="calc-grid">
+      <div class="calc-card" onclick="showCalc('compound')">
+        <div class="calc-icon">📊</div>
+        <div class="calc-name">Compound Interest</div>
+        <div class="calc-desc">How your money grows over time with consistent saving.</div>
+        <div class="calc-tag">Eye-opener</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('invest')">
+        <div class="calc-icon">🏦</div>
+        <div class="calc-name">401(k) Calculator</div>
+        <div class="calc-desc">Retirement balance with employer match and 2024 limits.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('roi')">
+        <div class="calc-icon">💹</div>
+        <div class="calc-name">ROI Calculator</div>
+        <div class="calc-desc">Return on investment and annualized CAGR for any asset.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('networth')">
+        <div class="calc-icon">🌐</div>
+        <div class="calc-name">Net Worth Calculator</div>
+        <div class="calc-desc">Your total assets minus liabilities — know your financial position.</div>
+        <div class="calc-tag">New</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('savings')">
+        <div class="calc-icon">🏁</div>
+        <div class="calc-name">Savings Goal Calculator</div>
+        <div class="calc-desc">How long to reach any savings goal with regular contributions.</div>
+        <div class="calc-tag">New</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📝 Budget & Lifestyle</div>
+    <div class="section-sub">Plan monthly spending and understand your financial health score.</div>
+    <div class="calc-grid">
+      <div class="calc-card" onclick="showCalc('budget')">
+        <div class="calc-icon">📝</div>
+        <div class="calc-name">Budget Planner</div>
+        <div class="calc-desc">50/30/20 rule budget based on your take-home pay.</div>
+      </div>
+      <div class="calc-card" onclick="showCalc('emergency')">
+        <div class="calc-icon">🛡️</div>
+        <div class="calc-name">Emergency Fund Calculator</div>
+        <div class="calc-desc">How much you need saved for a 3–6 month financial cushion.</div>
+        <div class="calc-tag">New</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter-section">
+    <div class="newsletter-inner">
+      <h3>Get your free Financial Health Score</h3>
+      <p>Enter your email and we'll send you a personalized checklist based on your income and goals.</p>
+      <div class="newsletter-form">
+        <input type="email" id="nl-email" placeholder="your@email.com">
+        <button onclick="submitNewsletter()">Get it free</button>
+      </div>
+      <p class="newsletter-msg" id="nl-msg">✓ Check your inbox!</p>
+      <p style="font-size:11px;color:var(--text3);margin-top:10px;">No spam. Unsubscribe any time.</p>
+    </div>
+  </div>
+  </main>
+</div>
+
+<!-- ===== CALCULATOR CONTAINER ===== -->
+<div id="page-calc" class="page">
+  <div id="calc-content"></div>
+</div>
+
+<!-- ===== BLOG LIST ===== -->
+<div id="page-blog" class="page">
+  <main>
+  <div class="blog-hero">
+    <h1>Financial Guides & Tips</h1>
+    <p>Plain-English guides to help Americans make smarter money decisions.</p>
+  </div>
+  <!-- Ad slot -->
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px 24px">
+    <div class="ad-slot"><div><div class="ad-label">Advertisement</div>AdSense 728×90 — Replace with AdSense code</div></div>
+  </div>
+  <div class="blog-grid" id="blog-grid"></div>
+  </main>
+</div>
+
+<!-- ===== BLOG POST ===== -->
+<div id="page-post" class="page">
+  <div class="blog-post-wrap" id="post-content"></div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<div id="page-about" class="page">
+  <div class="policy-wrap">
+    <button class="back-btn" onclick="showPage('home')">← Home</button>
+    <h1>About FinCalc Pro</h1>
+    <p class="policy-date">Helping Americans make smarter financial decisions since 2024</p>
+    <p>FinCalc Pro is a free financial calculator platform built for everyday Americans. Every tool is built on real IRS data, standard financial formulas, and updated annually to reflect current tax rates and regulations.</p>
+    <h2>Our mission</h2>
+    <p>Financial calculators shouldn't be buried behind paywalls or drowned in ads. We built FinCalc Pro because everyone deserves access to accurate, fast, and honest financial estimates — for free.</p>
+    <h2>Accuracy</h2>
+    <p>Our calculators use the same formulas used by banks, accountants, and financial planners. Tax brackets are sourced directly from IRS publications and updated every year. Results are estimates — always consult a licensed financial advisor for personalized advice.</p>
+    <h2>Privacy</h2>
+    <p>We do not store any numbers you enter. All calculations run entirely in your browser. No account, no tracking of your inputs, no selling of data.</p>
+    <h2>Contact</h2>
+    <p>Questions or feedback? Email us at <strong style="color:var(--accent)">hello@fincalcpro.com</strong></p>
+  </div>
+</div>
+
+<!-- ===== PRIVACY POLICY ===== -->
+<div id="page-privacy" class="page">
+  <div class="policy-wrap">
+    <button class="back-btn" onclick="showPage('home')">← Home</button>
+    <h1>Privacy Policy</h1>
+    <p class="policy-date">Last updated: January 1, 2024</p>
+    <p>FinCalc Pro ("we", "us") operates fincalcpro.com. This policy explains what information we collect and how we use it.</p>
+    <h2>Information we collect</h2>
+    <p>We collect no personally identifiable information through our calculators. Numbers you enter are processed entirely in your browser and are never sent to our servers.</p>
+    <p>We use Google Analytics (anonymized) to understand aggregate traffic patterns. We use Google AdSense to display relevant advertisements. AdSense may use cookies to serve ads based on prior visits to our site or other sites.</p>
+    <h2>Cookies</h2>
+    <p>We use cookies for: (1) Google Analytics — aggregate traffic measurement; (2) Google AdSense — ad serving. You can opt out of personalized ads at <a href="https://www.google.com/settings/ads" style="color:var(--accent)">google.com/settings/ads</a>.</p>
+    <h2>Third-party links</h2>
+    <p>Our site contains affiliate links to financial products. We may earn a commission if you apply for or purchase products through these links, at no additional cost to you. We only recommend products we believe are useful.</p>
+    <h2>Contact</h2>
+    <p>Privacy questions: <strong style="color:var(--accent)">privacy@fincalcpro.com</strong></p>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div id="page-disclaimer" class="page">
+  <div class="policy-wrap">
+    <button class="back-btn" onclick="showPage('home')">← Home</button>
+    <h1>Disclaimer</h1>
+    <p class="policy-date">Last updated: January 1, 2024</p>
+    <p>The calculators and content on FinCalc Pro are provided for <strong>educational and informational purposes only</strong>. Results are estimates and should not be relied upon as financial, tax, or legal advice.</p>
+    <h2>Not financial advice</h2>
+    <p>FinCalc Pro is not a licensed financial advisor, tax professional, or attorney. Nothing on this site constitutes professional financial advice. Always consult a licensed professional before making major financial decisions.</p>
+    <h2>Accuracy</h2>
+    <p>We strive to use accurate formulas and current tax rates, but we make no warranties about the completeness or accuracy of our results. Tax laws change and our calculators may not always reflect the latest updates.</p>
+    <h2>Affiliate disclosure</h2>
+    <p>FinCalc Pro participates in affiliate programs. We may earn a commission from qualifying purchases or applications made through our links. This does not affect our recommendations or editorial independence.</p>
+  </div>
+</div>
+
+<!-- ===== SEARCH PAGE ===== -->
+<div id="page-search" class="page">
+  <div class="search-results">
+    <h2 id="search-title">Search results</h2>
+    <div id="search-list"></div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand" style="cursor:default">FinCalc<span>Pro</span></div>
+      <p>Free financial calculators for Americans. Accurate, fast, and updated for 2024. No sign-up required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Calculators</h4>
+      <ul>
+        <li><button onclick="showCalc('mortgage')">Mortgage</button></li>
+        <li><button onclick="showCalc('tax')">Income Tax</button></li>
+        <li><button onclick="showCalc('invest')">401(k)</button></li>
+        <li><button onclick="showCalc('compound')">Compound Interest</button></li>
+        <li><button onclick="showCalc('paycheck')">Paycheck</button></li>
+        <li><button onclick="showCalc('networth')">Net Worth</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>More Tools</h4>
+      <ul>
+        <li><button onclick="showCalc('studentloan')">Student Loan</button></li>
+        <li><button onclick="showCalc('autoloan')">Auto Loan</button></li>
+        <li><button onclick="showCalc('budget')">Budget Planner</button></li>
+        <li><button onclick="showCalc('capitalgains')">Capital Gains</button></li>
+        <li><button onclick="showCalc('roi')">ROI</button></li>
+        <li><button onclick="showCalc('emergency')">Emergency Fund</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><button onclick="showPage('blog')">Blog</button></li>
+        <li><button onclick="showPage('about')">About</button></li>
+        <li><button onclick="showPage('privacy')">Privacy Policy</button></li>
+        <li><button onclick="showPage('disclaimer')">Disclaimer</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 FinCalc Pro. For informational purposes only. Not financial advice.</p>
+    <div class="footer-links">
+      <button onclick="showPage('privacy')">Privacy</button>
+      <button onclick="showPage('disclaimer')">Disclaimer</button>
+      <button onclick="showPage('about')">About</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== CALCULATOR DEFINITIONS =====
+const CALCS = {
+  mortgage: {
+    tag:'Loan & Mortgage', name:'Mortgage Calculator',
+    desc:'Calculate monthly payment, total interest paid, and full amortization schedule for any home loan.',
+    related:['affordability','autoloan','studentloan','debtpayoff'],
+    aff:{title:'Ready to apply?', sub:'Compare today\'s mortgage rates from top lenders — takes 2 minutes.', btn:'Compare rates →', href:'#'},
+    render: renderMortgage
+  },
+  affordability:{tag:'Mortgage',name:'Home Affordability Calculator',desc:'How much house can you afford based on income, debts, and down payment?',related:['mortgage','autoloan','budget'],aff:{title:'Find your rate',sub:'See what mortgage rate you qualify for in minutes.',btn:'Check rates →',href:'#'},render:renderAffordability},
+  autoloan:{tag:'Loan',name:'Auto Loan Calculator',desc:'Calculate monthly car payment with interest, sales tax, and true cost of ownership.',related:['mortgage','debtpayoff','budget'],aff:{title:'Get pre-approved today',sub:'Compare auto loan rates before walking into a dealership.',btn:'Compare rates →',href:'#'},render:renderAuto},
+  studentloan:{tag:'Loan',name:'Student Loan Calculator',desc:'Monthly payment, payoff date, and total interest on your student loan debt.',related:['debtpayoff','budget','paycheck'],aff:{title:'Refinance your student loans',sub:'Lower your rate and save thousands over the life of your loan.',btn:'See your rate →',href:'#'},render:renderStudentLoan},
+  debtpayoff:{tag:'Debt',name:'Debt Payoff Calculator',desc:'Avalanche vs snowball method — find the fastest and cheapest path to being debt-free.',related:['budget','studentloan','networth'],aff:{title:'Consider a debt consolidation loan',sub:'One payment, one rate — could save you hundreds per month.',btn:'Check rates →',href:'#'},render:renderDebtPayoff},
+  tax:{tag:'Tax',name:'Federal Income Tax Calculator',desc:'Estimate your 2024 federal income tax using the latest IRS brackets.',related:['selfemploy','capitalgains','paycheck'],aff:{title:'Reduce your tax bill',sub:'Open a tax-advantaged 401(k) or IRA and keep more of what you earn.',btn:'Explore options →',href:'#'},render:renderTax},
+  selfemploy:{tag:'Tax',name:'Self-Employment Tax Calculator',desc:'Freelancers and 1099 workers — calculate SE tax, deductions, and quarterly estimates.',related:['tax','budget','paycheck'],aff:{title:'Save on self-employment taxes',sub:'A SEP-IRA lets self-employed workers deduct up to $69,000 per year.',btn:'Learn more →',href:'#'},render:renderSE},
+  capitalgains:{tag:'Tax',name:'Capital Gains Tax Calculator',desc:'Calculate tax on stocks, crypto, or real estate — short-term vs long-term rates.',related:['tax','roi','invest'],aff:{title:'Tax-loss harvest smarter',sub:'Some brokerages offer automatic tax-loss harvesting to reduce your bill.',btn:'Compare brokers →',href:'#'},render:renderCG},
+  paycheck:{tag:'Tax',name:'Paycheck Calculator',desc:'Your take-home pay after federal income tax, Social Security, Medicare, and state withholding.',related:['tax','budget','selfemploy'],aff:{title:'Make your paycheck go further',sub:'A high-yield savings account earns 10x more than a standard bank.',btn:'Compare HYSAs →',href:'#'},render:renderPaycheck},
+  compound:{tag:'Investing',name:'Compound Interest Calculator',desc:'See how your money grows over time with consistent saving and compound returns.',related:['invest','roi','savings'],aff:{title:'Start investing today',sub:'Brokerage accounts with zero commissions and no minimums.',btn:'Compare brokers →',href:'#'},render:renderCI},
+  invest:{tag:'Investing',name:'401(k) Retirement Calculator',desc:'Estimate your retirement balance with employer match, 2024 contribution limits, and compound growth.',related:['compound','roi','savings'],aff:{title:'Optimize your 401(k)',sub:'Low-fee index funds can add tens of thousands to your retirement.',btn:'Learn more →',href:'#'},render:renderK},
+  roi:{tag:'Investing',name:'ROI Calculator',desc:'Calculate total return on investment and annualized CAGR for stocks, real estate, or any asset.',related:['compound','invest','capitalgains'],aff:null,render:renderROI},
+  networth:{tag:'Investing',name:'Net Worth Calculator',desc:'Calculate your total assets minus liabilities to know your true financial position.',related:['budget','savings','invest'],aff:null,render:renderNetWorth},
+  savings:{tag:'Savings',name:'Savings Goal Calculator',desc:'How long will it take to reach any savings goal with regular monthly contributions?',related:['compound','budget','emergency'],aff:{title:'Earn more on your savings',sub:'High-yield savings accounts currently pay 4-5% APY.',btn:'Compare HYSAs →',href:'#'},render:renderSavings},
+  budget:{tag:'Budgeting',name:'Budget Planner (50/30/20)',desc:'Allocate your take-home pay using the proven 50/30/20 budgeting rule.',related:['emergency','networth','paycheck'],aff:null,render:renderBudget},
+  emergency:{tag:'Budgeting',name:'Emergency Fund Calculator',desc:'How much should you have saved for a 3–6 month financial cushion?',related:['budget','savings','networth'],aff:{title:'Keep your emergency fund safe',sub:'High-yield savings accounts pay 4-5% APY — don\'t let it sit idle.',btn:'Compare HYSAs →',href:'#'},render:renderEmergency}
+};
+
+// ===== NAVIGATION =====
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo(0,0);
+  updateSchema(id);
+}
+function showCalc(id) {
+  const c = CALCS[id];
+  if (!c) return;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-calc').classList.add('active');
+  document.getElementById('calc-content').innerHTML = buildCalcShell(id, c);
+  c.render(id);
+  window.scrollTo(0,0);
+  updateCalcSchema(id, c);
+}
+function buildCalcShell(id, c) {
+  const rel = (c.related||[]).map(r=>CALCS[r]?`<div class="related-card" onclick="showCalc('${r}')"><div class="related-card-name">${CALCS[r].name}</div><div class="related-card-desc">${CALCS[r].tag}</div></div>`:'').join('');
+  const aff = c.aff ? `<div class="aff-banner"><div class="aff-banner-title">${c.aff.title}</div><div class="aff-banner-sub">${c.aff.sub}</div><a class="aff-btn" href="${c.aff.href}" rel="sponsored noopener">${c.aff.btn}</a></div>` : '';
+  return `
+<div class="calc-page-wrap">
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <span onclick="showPage('home')">Home</span><span class="sep">›</span>
+    <span onclick="showPage('home')">${c.tag}</span><span class="sep">›</span>
+    <span style="color:var(--text2)">${c.name}</span>
+  </nav>
+  <div class="calc-header">
+    <div class="calc-header-tag">${c.tag}</div>
+    <h1 style="font-family:var(--ff-display);font-size:28px;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px">${c.name}</h1>
+    <p style="color:var(--text2);font-size:15px">${c.desc}</p>
+  </div>
+  <div id="calc-body-${id}"></div>
+  ${aff}
+  <div class="ad-slot" style="margin-top:24px"><div><div class="ad-label">Advertisement</div>AdSense 300×250 — Replace with Google AdSense tag</div></div>
+  <div class="related-section">
+    <div class="related-title">You might also need</div>
+    <div class="related-grid">${rel}</div>
+  </div>
+</div>`;
+}
+
+// ===== HELPERS =====
+const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmtD = n => '$' + (+n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtPct = n => (+n).toFixed(2)+'%';
+function rows(id, data) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.innerHTML = data.map(([l,v,cls])=>`<div class="result-row"><span class="result-row-label">${l}</span><span class="result-row-val ${cls||''}">${v}</span></div>`).join('');
+}
+function calcShell(id, inputs, resultId) {
+  return `<div class="calc-body" id="calc-body-${id}">
+    <div class="calc-inputs">${inputs}</div>
+    <div class="calc-results" id="${resultId}">
+      <div class="result-main">
+        <div class="result-label" id="${resultId}-label">Result</div>
+        <div class="result-value" id="${resultId}-val">—</div>
+        <div class="result-sub" id="${resultId}-sub">Fill in the fields to calculate</div>
+      </div>
+      <div class="result-rows" id="${resultId}-rows"></div>
+    </div>
+  </div>`;
+}
+function inp(id,label,val,type='number',step='1',prefix=''){
+  if(prefix) return `<div class="form-group"><label class="form-label" for="${id}">${label}</label><div class="input-prefix" data-prefix="${prefix}"><input class="form-input" type="${type}" id="${id}" value="${val}" step="${step}" oninput="recalc('${id}')"></div></div>`;
+  return `<div class="form-group"><label class="form-label" for="${id}">${label}</label><input class="form-input" type="${type}" id="${id}" value="${val}" step="${step}" oninput="recalc('${id}')"></div>`;
+}
+function sel(id,label,opts,onc){
+  const options = opts.map(([v,t])=>`<option value="${v}">${t}</option>`).join('');
+  return `<div class="form-group"><label class="form-label" for="${id}">${label}</label><select class="form-select" id="${id}" onchange="${onc}">${options}</select></div>`;
+}
+function btn(fn){ return `<button class="calc-btn" onclick="${fn}">Calculate</button>`; }
+
+// recalc router
+const recalcMap = {};
+function recalc(id){ if(recalcMap[id]) recalcMap[id](); }
+
+// ===== MORTGAGE =====
+function renderMortgage(id) {
+  const w = document.getElementById('calc-body-'+id);
+  w.innerHTML = calcShell(id, `
+    ${inp('mort-price','Home price','350000','number','1','$')}
+    ${inp('mort-down','Down payment','70000','number','1','$')}
+    ${inp('mort-rate','Annual interest rate (%)','7.0','number','0.1')}
+    ${sel('mort-term','Loan term',[['30','30 years'],['20','20 years'],['15','15 years'],['10','10 years']],'calcMortgage()')}
+    ${inp('mort-tax','Property tax ($/year)','4200','number','1','$')}
+    ${inp('mort-ins','Home insurance ($/year)','1200','number','1','$')}
+    ${btn('calcMortgage()')}
+  `, 'mort-r');
+  calcMortgage();
+}
+function calcMortgage(){
+  const price=+v('mort-price')||0,down=+v('mort-down')||0,rate=+v('mort-rate')||0;
+  const term=+v('mort-term')||30,tax=+v('mort-tax')||0,ins=+v('mort-ins')||0;
+  const loan=price-down; if(loan<=0||rate<=0) return;
+  const r=rate/100/12,n=term*12;
+  const pmt=loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const total=pmt*n,totalInt=total-loan,monthly=pmt+tax/12+ins/12;
+  set('mort-r-label','Monthly payment (PITI)');
+  set('mort-r-val',fmtD(monthly));
+  set('mort-r-sub','Principal + interest + taxes + insurance');
+  rows('mort-r-rows',[
+    ['Loan amount',fmt(loan),''],
+    ['Principal & interest',fmtD(pmt),''],
+    ['Property tax /month',fmtD(tax/12),''],
+    ['Home insurance /month',fmtD(ins/12),''],
+    ['Total interest paid',fmt(totalInt),'danger'],
+    ['Total cost',fmt(total+down),''],
+    ['Down payment %',((down/price)*100).toFixed(1)+'%',down/price>=0.2?'accent':'danger'],
+  ]);
+}
+
+// ===== AFFORDABILITY =====
+function renderAffordability(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('aff-income','Annual gross income','90000','number','1','$')}
+    ${inp('aff-debt','Monthly debt payments (car, student loans)','400','number','1','$')}
+    ${inp('aff-down','Down payment available','40000','number','1','$')}
+    ${inp('aff-rate','Interest rate (%)','7.0','number','0.1')}
+    ${sel('aff-term','Loan term',[['30','30 years'],['20','20 years'],['15','15 years']],'calcAff()')}
+    ${btn('calcAff()')}
+  `,'aff-r');
+  calcAff();
+}
+function calcAff(){
+  const income=+v('aff-income')||0,debt=+v('aff-debt')||0,down=+v('aff-down')||0;
+  const rate=+v('aff-rate')||0,term=+v('aff-term')||30;
+  const monthly=income/12,maxPITI=monthly*0.28,maxTotal=monthly*0.43-debt;
+  const maxPmt=Math.min(maxPITI,maxTotal)-300;
+  const r=rate/100/12,n=term*12;
+  const maxLoan=maxPmt*(Math.pow(1+r,n)-1)/(r*Math.pow(1+r,n));
+  const maxPrice=maxLoan+down;
+  set('aff-r-label','Maximum home price');
+  set('aff-r-val',fmt(maxPrice));
+  set('aff-r-sub','Based on 28%/43% DTI rule');
+  rows('aff-r-rows',[
+    ['Max loan amount',fmt(maxLoan),''],
+    ['Down payment',fmt(down),''],
+    ['Max monthly payment',fmtD(maxPmt),''],
+    ['Front-end DTI','28%',''],
+    ['Back-end DTI','43%',''],
+    ['Down payment %',((down/maxPrice)*100).toFixed(1)+'%',down/maxPrice>=0.2?'accent':''],
+  ]);
+}
+
+// ===== AUTO LOAN =====
+function renderAuto(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('auto-price','Vehicle price','32000','number','1','$')}
+    ${inp('auto-down','Down payment','5000','number','1','$')}
+    ${inp('auto-trade','Trade-in value','0','number','1','$')}
+    ${inp('auto-rate','Interest rate (APR %)','6.5','number','0.1')}
+    ${sel('auto-term','Loan term',[['72','72 months (6yr)'],['60','60 months (5yr)'],['48','48 months (4yr)'],['36','36 months (3yr)']],'calcAuto()')}
+    ${inp('auto-tax','Sales tax (%)','8','number','0.1')}
+    ${btn('calcAuto()')}
+  `,'auto-r');
+  calcAuto();
+}
+function calcAuto(){
+  const price=+v('auto-price')||0,down=+v('auto-down')||0,trade=+v('auto-trade')||0;
+  const rate=+v('auto-rate')||0,term=+v('auto-term')||60,taxRate=+v('auto-tax')||0;
+  const taxAmt=price*taxRate/100,loan=price-down-trade+taxAmt;
+  if(loan<=0) return;
+  const r=rate/100/12,n=term;
+  const pmt=r>0?loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):loan/n;
+  const total=pmt*n,totalInt=total-loan;
+  set('auto-r-label','Monthly payment');
+  set('auto-r-val',fmtD(pmt));
+  set('auto-r-sub',`Over ${term} months`);
+  rows('auto-r-rows',[
+    ['Loan amount',fmt(loan),''],
+    ['Sales tax',fmt(taxAmt),''],
+    ['Total interest',fmt(totalInt),'danger'],
+    ['Total cost',fmt(total+down+trade),''],
+    ['Payoff',Math.floor(term/12)+'yr '+term%12+'mo',''],
+  ]);
+}
+
+// ===== STUDENT LOAN =====
+function renderStudentLoan(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('sl-balance','Loan balance','35000','number','1','$')}
+    ${inp('sl-rate','Interest rate (%)','5.5','number','0.1')}
+    ${sel('sl-term','Repayment plan',[['10','Standard 10 years'],['20','Extended 20 years'],['25','Extended 25 years']],'calcSL()')}
+    ${inp('sl-extra','Extra monthly payment','0','number','1','$')}
+    ${btn('calcSL()')}
+  `,'sl-r');
+  calcSL();
+}
+function calcSL(){
+  const bal=+v('sl-balance')||0,rate=+v('sl-rate')||0,term=+v('sl-term')||10,extra=+v('sl-extra')||0;
+  const r=rate/100/12,n=term*12;
+  const pmt=r>0?bal*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):bal/n;
+  const totalPmt=pmt*n,totalInt=totalPmt-bal;
+  // With extra payment
+  let bal2=bal,months=0,totalPaid=0;
+  while(bal2>0&&months<n*3){
+    const interest=bal2*r;
+    const pay=Math.min(pmt+extra,bal2+interest);
+    bal2=bal2+interest-pay;
+    totalPaid+=pay;
+    months++;
+    if(bal2<0.01)break;
+  }
+  const saved=totalInt-(totalPaid-bal);
+  set('sl-r-label','Monthly payment');
+  set('sl-r-val',fmtD(pmt));
+  set('sl-r-sub',`Standard ${term}-year repayment plan`);
+  rows('sl-r-rows',[
+    ['Loan balance',fmt(bal),''],
+    ['Total interest (standard)',fmt(totalInt),'danger'],
+    ['Total paid (standard)',fmt(totalPmt),''],
+    extra>0?['With extra payment payoff',Math.floor(months/12)+'yr '+months%12+'mo','accent']:null,
+    extra>0?['Interest saved with extra pay',fmt(saved),'accent']:null,
+  ].filter(Boolean));
+}
+
+// ===== DEBT PAYOFF =====
+function renderDebtPayoff(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=`<div class="calc-body"><div class="calc-inputs">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:18px">Enter up to 3 debts. We'll compare avalanche vs snowball payoff strategies.</p>
+    <div style="font-size:12px;color:var(--accent);font-weight:600;margin-bottom:10px">Debt 1</div>
+    ${inp('dp-b1','Balance','8500','number','1','$')}${inp('dp-r1','Interest rate (%)','22.9','number','0.1')}${inp('dp-p1','Min. payment','200','number','1','$')}
+    <div style="font-size:12px;color:var(--accent);font-weight:600;margin:16px 0 10px">Debt 2</div>
+    ${inp('dp-b2','Balance','3200','number','1','$')}${inp('dp-r2','Interest rate (%)','18.0','number','0.1')}${inp('dp-p2','Min. payment','80','number','1','$')}
+    ${inp('dp-extra','Extra monthly payment toward debt','100','number','1','$')}
+    ${btn('calcDP()')}
+  </div>
+  <div class="calc-results" id="dp-r">
+    <div class="result-main"><div class="result-label" id="dp-r-label">Avalanche method</div><div class="result-value" id="dp-r-val">—</div><div class="result-sub" id="dp-r-sub">Fill in debts above</div></div>
+    <div class="result-rows" id="dp-r-rows"></div>
+  </div></div>`;
+  calcDP();
+}
+function calcDP(){
+  const debts=[
+    {bal:+v('dp-b1')||0,rate:+v('dp-r1')||0,min:+v('dp-p1')||0},
+    {bal:+v('dp-b2')||0,rate:+v('dp-r2')||0,min:+v('dp-p2')||0},
+  ].filter(d=>d.bal>0&&d.rate>0);
+  const extra=+v('dp-extra')||0;
+  if(debts.length===0)return;
+  function simulate(order){
+    let ds=debts.map(d=>({...d}));
+    ds.sort(order);
+    let months=0,totalInt=0;
+    while(ds.some(d=>d.bal>0)&&months<600){
+      let extraLeft=extra;
+      ds.forEach(d=>{
+        if(d.bal<=0)return;
+        const int=d.bal*(d.rate/100/12);
+        totalInt+=int;
+        d.bal=d.bal+int-d.min;
+        if(d.bal<0)d.bal=0;
+      });
+      // Apply extra to first non-zero
+      for(const d of ds){
+        if(d.bal>0){d.bal=Math.max(0,d.bal-extraLeft);break;}
+      }
+      months++;
+      if(ds.every(d=>d.bal<=0))break;
+    }
+    return{months,totalInt};
+  }
+  const aval=simulate((a,b)=>b.rate-a.rate);
+  const snow=simulate((a,b)=>a.bal-b.bal);
+  const totalDebt=debts.reduce((s,d)=>s+d.bal,0);
+  set('dp-r-label','Avalanche method payoff');
+  set('dp-r-val',Math.floor(aval.months/12)+'yr '+aval.months%12+'mo');
+  set('dp-r-sub','Highest interest first — saves most money');
+  rows('dp-r-rows',[
+    ['Avalanche total interest',fmt(aval.totalInt),'danger'],
+    ['Snowball payoff',Math.floor(snow.months/12)+'yr '+snow.months%12+'mo',''],
+    ['Snowball total interest',fmt(snow.totalInt),''],
+    ['Interest saved (avalanche)',fmt(Math.max(0,snow.totalInt-aval.totalInt)),'accent'],
+    ['Total debt',fmt(totalDebt),''],
+  ]);
+}
+
+// ===== FEDERAL TAX =====
+function renderTax(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${sel('tax-status','Filing status',[['single','Single'],['married','Married filing jointly'],['hoh','Head of household']],'calcTax()')}
+    ${inp('tax-income','Annual gross income','75000','number','1','$')}
+    ${inp('tax-other','Other income (freelance, rental, etc.)','0','number','1','$')}
+    ${inp('tax-deductions','Pre-tax deductions (401k, HSA)','0','number','1','$')}
+    ${sel('tax-deduct-type','Deduction type',[['standard','Standard deduction'],['itemized','Itemized deductions']],'calcTax()')}
+    <div id="tax-item-group" style="display:none">${inp('tax-itemized','Itemized deduction amount','0','number','1','$')}</div>
+    ${btn('calcTax()')}
+  `,'tax-r');
+  document.getElementById('tax-deduct-type').addEventListener('change',()=>{
+    document.getElementById('tax-item-group').style.display=v('tax-deduct-type')==='itemized'?'':'none';
+    calcTax();
+  });
+  calcTax();
+}
+function calcTax(){
+  const status=v('tax-status'),income=+v('tax-income')||0,other=+v('tax-other')||0,preTax=+v('tax-deductions')||0;
+  const deductType=v('tax-deduct-type'),itemized=+v('tax-itemized')||0;
+  const std={single:14600,married:29200,hoh:21900};
+  const deduction=deductType==='itemized'?Math.max(itemized,std[status]):std[status];
+  const gross=income+other-preTax;
+  const taxable=Math.max(0,gross-deduction);
+  const brackets={single:[[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]],married:[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]],hoh:[[16550,.10],[63100,.12],[100500,.22],[191950,.24],[243700,.32],[609350,.35],[Infinity,.37]]};
+  let tax=0,prev=0,margRate=0;
+  for(const[lim,rate] of brackets[status]){
+    if(taxable<=prev)break;
+    const chunk=Math.min(taxable,lim)-prev;
+    tax+=chunk*rate;
+    if(taxable>prev)margRate=rate;
+    prev=lim; if(lim===Infinity)break;
+  }
+  const eff=gross>0?tax/gross*100:0;
+  set('tax-r-label','Estimated federal tax');
+  set('tax-r-val',fmt(tax));
+  set('tax-r-sub','2024 IRS brackets estimate');
+  rows('tax-r-rows',[
+    ['Gross income',fmt(gross),''],
+    ['Standard deduction',fmt(deduction),'accent'],
+    ['Taxable income',fmt(taxable),''],
+    ['Marginal rate',fmtPct(margRate*100),''],
+    ['Effective rate',fmtPct(eff),''],
+    ['Monthly tax estimate',fmtD(tax/12),'danger'],
+    ['After-tax income',fmt(gross-tax),'accent'],
+  ]);
+}
+
+// ===== PAYCHECK =====
+function renderPaycheck(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('pc-salary','Annual gross salary','65000','number','1','$')}
+    ${sel('pc-freq','Pay frequency',[['26','Bi-weekly (26x/yr)'],['24','Semi-monthly (24x/yr)'],['52','Weekly (52x/yr)'],['12','Monthly (12x/yr)']],'calcPC()')}
+    ${sel('pc-status','Filing status',[['single','Single'],['married','Married']],'calcPC()')}
+    ${inp('pc-401k','401(k) contribution (%)','6','number','0.5')}
+    ${inp('pc-state','State income tax rate (%)','5','number','0.1')}
+    ${btn('calcPC()')}
+  `,'pc-r');
+  calcPC();
+}
+function calcPC(){
+  const salary=+v('pc-salary')||0,freq=+v('pc-freq')||26,status=v('pc-status');
+  const k401=+v('pc-401k')||0,stateRate=+v('pc-state')||0;
+  const gross=salary/freq;
+  const k401Amt=salary*k401/100/freq;
+  const taxableAnnual=Math.max(0,salary-salary*k401/100);
+  const std={single:14600,married:29200};
+  const taxable=Math.max(0,taxableAnnual-std[status]);
+  const brackets={single:[[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[Infinity,.35]],married:[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[Infinity,.32]]};
+  let annualTax=0,prev=0;
+  for(const[lim,rate] of brackets[status]){
+    if(taxable<=prev)break;
+    annualTax+=(Math.min(taxable,lim)-prev)*rate;
+    prev=lim; if(lim===Infinity)break;
+  }
+  const fedTax=annualTax/freq;
+  const ss=Math.min(gross,160200/freq)*0.062;
+  const medicare=gross*0.0145;
+  const stateTax=gross*stateRate/100;
+  const takeHome=gross-fedTax-ss-medicare-stateTax-k401Amt;
+  set('pc-r-label','Take-home per paycheck');
+  set('pc-r-val',fmtD(takeHome));
+  set('pc-r-sub',`Every ${freq===52?'week':freq===26?'2 weeks':freq===24?'semi-month':'month'}`);
+  rows('pc-r-rows',[
+    ['Gross per paycheck',fmtD(gross),''],
+    ['Federal income tax',fmtD(fedTax),'danger'],
+    ['Social Security (6.2%)',fmtD(ss),''],
+    ['Medicare (1.45%)',fmtD(medicare),''],
+    ['State tax',fmtD(stateTax),''],
+    ['401(k) contribution',fmtD(k401Amt),'accent'],
+    ['Annual take-home',fmt(takeHome*freq),'accent'],
+  ]);
+}
+
+// ===== SELF EMPLOYMENT =====
+function renderSE(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('se-income','Gross self-employment income','60000','number','1','$')}
+    ${inp('se-expenses','Business expenses','5000','number','1','$')}
+    ${inp('se-w2','Other W-2 income (if any)','0','number','1','$')}
+    ${sel('se-status','Filing status',[['single','Single'],['married','Married filing jointly']],'calcSE()')}
+    ${btn('calcSE()')}
+  `,'se-r');
+  calcSE();
+}
+function calcSE(){
+  const income=+v('se-income')||0,expenses=+v('se-expenses')||0,w2=+v('se-w2')||0,status=v('se-status');
+  const net=Math.max(0,income-expenses),base=net*0.9235,seTax=base*0.153;
+  const deductSE=seTax/2,quarterly=seTax/4;
+  const totalIncome=net+w2-deductSE;
+  const std={single:14600,married:29200};
+  const taxable=Math.max(0,totalIncome-std[status]);
+  set('se-r-label','Total SE tax');
+  set('se-r-val',fmt(seTax));
+  set('se-r-sub','SS (12.4%) + Medicare (2.9%) on 92.35% of net');
+  rows('se-r-rows',[
+    ['Net SE income',fmt(net),''],
+    ['SE tax base (92.35%)',fmt(base),''],
+    ['Social Security portion',fmt(base*0.124),''],
+    ['Medicare portion',fmt(base*0.029),''],
+    ['SE tax deduction (50%)',fmt(deductSE),'accent'],
+    ['Quarterly estimated tax',fmt(quarterly),'danger'],
+    ['Approx. taxable income',fmt(taxable),''],
+  ]);
+}
+
+// ===== CAPITAL GAINS =====
+function renderCG(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('cg-basis','Purchase price (cost basis)','20000','number','1','$')}
+    ${inp('cg-sale','Sale price','35000','number','1','$')}
+    ${sel('cg-period','Holding period',[['short','Short-term (≤ 1 year)'],['long','Long-term (> 1 year)']],'calcCG()')}
+    ${inp('cg-income','Annual income (for bracket)','75000','number','1','$')}
+    ${sel('cg-status','Filing status',[['single','Single'],['married','Married filing jointly']],'calcCG()')}
+    ${btn('calcCG()')}
+  `,'cg-r');
+  calcCG();
+}
+function calcCG(){
+  const basis=+v('cg-basis')||0,sale=+v('cg-sale')||0,period=v('cg-period');
+  const income=+v('cg-income')||0,status=v('cg-status');
+  const gain=sale-basis;
+  if(gain<=0){set('cg-r-val','$0');set('cg-r-sub','No taxable gain');rows('cg-r-rows',[['Capital gain/loss',gain<0?'-'+fmt(-gain):fmt(gain),gain<0?'accent':'']]);return;}
+  let taxRate;
+  if(period==='short'){
+    const br={single:[[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[Infinity,.35]],married:[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[Infinity,.32]]};
+    let t=0,prev=0;
+    for(const[lim,r] of (br[status]||br.single)){
+      if(income+gain<=prev)break;
+      t+=(Math.min(income+gain,lim)-Math.max(income,prev))*r;
+      prev=lim; if(lim===Infinity)break;
+    }
+    taxRate=gain>0?t/gain:0;
+  }else{
+    const lt={single:[[47025,0],[518900,.15],[Infinity,.20]],married:[[94050,0],[583750,.15],[Infinity,.20]]};
+    let rate=0;
+    for(const[lim,r] of (lt[status]||lt.single)){if(income<lim){rate=r;break;}}
+    taxRate=rate;
+  }
+  const taxOwed=gain*taxRate,netProfit=gain-taxOwed;
+  set('cg-r-label','Capital gains tax');
+  set('cg-r-val',fmt(taxOwed));
+  set('cg-r-sub',period==='short'?'Short-term: taxed as ordinary income':'Long-term capital gains rate (2024)');
+  rows('cg-r-rows',[
+    ['Capital gain',fmt(gain),''],
+    ['Tax rate',fmtPct(taxRate*100),''],
+    ['Tax owed',fmt(taxOwed),'danger'],
+    ['Net profit after tax',fmt(netProfit),'accent'],
+    ['After-tax return',fmtPct((netProfit/basis)*100),'accent'],
+  ]);
+}
+
+// ===== 401K =====
+function renderK(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('k-age','Current age','30','number','1')}
+    ${inp('k-retire','Retirement age','65','number','1')}
+    ${inp('k-balance','Current 401(k) balance','25000','number','1','$')}
+    ${inp('k-salary','Annual salary','80000','number','1','$')}
+    ${inp('k-contrib','Your contribution (% of salary)','6','number','0.5')}
+    ${inp('k-match','Employer match (% of salary)','3','number','0.5')}
+    ${inp('k-return','Expected annual return (%)','7','number','0.5')}
+    ${btn('calcK()')}
+  `,'k-r');
+  calcK();
+}
+function calcK(){
+  const age=+v('k-age')||0,retire=+v('k-retire')||65,balance=+v('k-balance')||0;
+  const salary=+v('k-salary')||0,contrib=+v('k-contrib')||0,match=+v('k-match')||0,ret=+v('k-return')||0;
+  const years=retire-age; if(years<=0)return;
+  const r=ret/100/12,n=years*12;
+  const monthlyContrib=salary*(contrib+match)/100/12;
+  const future=balance*Math.pow(1+r,n)+monthlyContrib*(Math.pow(1+r,n)-1)/r;
+  const totalIn=monthlyContrib*n+balance,growth=future-totalIn;
+  set('k-r-label','Balance at retirement');
+  set('k-r-val',fmt(future));
+  set('k-r-sub',`At age ${retire} — ${years} years of growth`);
+  rows('k-r-rows',[
+    ['Your contribution/year',fmt(salary*contrib/100),''],
+    ['Employer match/year',fmt(salary*match/100),'accent'],
+    ['Total annual contribution',fmt(salary*(contrib+match)/100),''],
+    ['Total money contributed',fmt(totalIn),''],
+    ['Investment growth',fmt(growth),'accent'],
+    ['Est. monthly retirement income*',fmt(future/300),'accent'],
+  ]);
+}
+
+// ===== ROI =====
+function renderROI(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('roi-initial','Initial investment','10000','number','1','$')}
+    ${inp('roi-final','Final value','16000','number','1','$')}
+    ${inp('roi-years','Investment period (years)','5','number','1')}
+    ${inp('roi-income','Additional income (dividends, rent, etc.)','0','number','1','$')}
+    ${btn('calcROI()')}
+  `,'roi-r');
+  calcROI();
+}
+function calcROI(){
+  const initial=+v('roi-initial')||0,fin=+v('roi-final')||0,years=+v('roi-years')||1,income=+v('roi-income')||0;
+  const totalReturn=fin+income-initial,roi=initial>0?totalReturn/initial*100:0;
+  const cagr=initial>0&&years>0?(Math.pow((fin+income)/initial,1/years)-1)*100:0;
+  set('roi-r-label','Total ROI');
+  set('roi-r-val',fmtPct(roi));
+  set('roi-r-sub',`Over ${years} year${years!==1?'s':''}`);
+  rows('roi-r-rows',[
+    ['Total gain/loss',fmt(totalReturn),totalReturn>=0?'accent':'danger'],
+    ['Annualized return (CAGR)',fmtPct(cagr),cagr>=0?'accent':'danger'],
+    ['Initial investment',fmt(initial),''],
+    ['Final value',fmt(fin),''],
+    ['Income generated',fmt(income),''],
+  ]);
+}
+
+// ===== NET WORTH =====
+function renderNetWorth(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=`<div class="calc-body"><div class="calc-inputs">
+    <p style="font-size:12px;color:var(--accent);font-weight:600;margin-bottom:12px">ASSETS</p>
+    ${inp('nw-cash','Cash & bank accounts','15000','number','1','$')}
+    ${inp('nw-invest','Investments (stocks, ETFs, crypto)','25000','number','1','$')}
+    ${inp('nw-retire','Retirement accounts (401k, IRA)','30000','number','1','$')}
+    ${inp('nw-home','Home value','0','number','1','$')}
+    ${inp('nw-car','Vehicle value','12000','number','1','$')}
+    <p style="font-size:12px;color:var(--danger);font-weight:600;margin:16px 0 12px">LIABILITIES</p>
+    ${inp('nw-mortgage','Mortgage balance','0','number','1','$')}
+    ${inp('nw-carloan','Auto loan balance','8000','number','1','$')}
+    ${inp('nw-student','Student loan balance','20000','number','1','$')}
+    ${inp('nw-credit','Credit card debt','3500','number','1','$')}
+    ${btn('calcNW()')}
+  </div>
+  <div class="calc-results" id="nw-r">
+    <div class="result-main"><div class="result-label" id="nw-r-label">Net worth</div><div class="result-value" id="nw-r-val">—</div><div class="result-sub" id="nw-r-sub">Assets minus liabilities</div></div>
+    <div class="result-rows" id="nw-r-rows"></div>
+  </div></div>`;
+  calcNW();
+}
+function calcNW(){
+  const assets=(+v('nw-cash')||0)+(+v('nw-invest')||0)+(+v('nw-retire')||0)+(+v('nw-home')||0)+(+v('nw-car')||0);
+  const liab=(+v('nw-mortgage')||0)+(+v('nw-carloan')||0)+(+v('nw-student')||0)+(+v('nw-credit')||0);
+  const nw=assets-liab;
+  set('nw-r-label','Net worth');
+  set('nw-r-val',fmt(nw));
+  set('nw-r-sub',nw>=0?'Keep growing your wealth!':'Work on paying down debt first');
+  rows('nw-r-rows',[
+    ['Total assets',fmt(assets),'accent'],
+    ['Total liabilities',fmt(liab),'danger'],
+    ['Debt-to-asset ratio',assets>0?fmtPct(liab/assets*100):'—',''],
+    ['Liquid assets',fmt((+v('nw-cash')||0)+(+v('nw-invest')||0)),''],
+    ['Retirement assets',fmt(+v('nw-retire')||0),''],
+  ]);
+}
+
+// ===== SAVINGS GOAL =====
+function renderSavings(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('sg-goal','Savings goal','20000','number','1','$')}
+    ${inp('sg-current','Current savings','2000','number','1','$')}
+    ${inp('sg-monthly','Monthly contribution','400','number','1','$')}
+    ${inp('sg-rate','Annual interest rate (%)','4.5','number','0.1')}
+    ${btn('calcSG()')}
+  `,'sg-r');
+  calcSG();
+}
+function calcSG(){
+  const goal=+v('sg-goal')||0,current=+v('sg-current')||0,monthly=+v('sg-monthly')||0,rate=+v('sg-rate')||0;
+  if(goal<=current){set('sg-r-val','Goal reached!');set('sg-r-sub','You already have enough saved.');rows('sg-r-rows',[]);return;}
+  const r=rate/100/12;
+  let months=0,bal=current;
+  while(bal<goal&&months<600){bal=bal*(1+r)+monthly;months++;}
+  const totalDeposited=current+monthly*months,interest=bal-totalDeposited;
+  set('sg-r-label','Time to reach goal');
+  set('sg-r-val',Math.floor(months/12)+'yr '+months%12+'mo');
+  set('sg-r-sub',`Saving ${fmt(monthly)}/month at ${rate}% APY`);
+  rows('sg-r-rows',[
+    ['Goal amount',fmt(goal),''],
+    ['Starting balance',fmt(current),''],
+    ['Monthly contribution',fmt(monthly),''],
+    ['Interest earned',fmt(Math.max(0,interest)),'accent'],
+    ['Total contributed',fmt(current+monthly*months),''],
+  ]);
+}
+
+// ===== COMPOUND INTEREST =====
+function renderCI(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('ci-principal','Initial deposit','10000','number','1','$')}
+    ${inp('ci-monthly','Monthly contribution','500','number','1','$')}
+    ${inp('ci-rate','Annual interest rate (%)','8','number','0.1')}
+    ${inp('ci-years','Years to grow','20','number','1')}
+    ${sel('ci-freq','Compound frequency',[['12','Monthly'],['4','Quarterly'],['1','Annually']],'calcCI()')}
+    ${btn('calcCI()')}
+  `,'ci-r');
+  calcCI();
+}
+function calcCI(){
+  const p=+v('ci-principal')||0,monthly=+v('ci-monthly')||0,rate=+v('ci-rate')||0;
+  const years=+v('ci-years')||0,freq=+v('ci-freq')||12;
+  const r=rate/100/freq,n=years*freq;
+  const futureP=p*Math.pow(1+r,n);
+  const mRate=rate/100/12,mN=years*12;
+  const futurePMT=monthly*(Math.pow(1+mRate,mN)-1)/mRate;
+  const total=futureP+futurePMT,totalIn=p+monthly*years*12,gain=total-totalIn;
+  set('ci-r-label','Final balance');
+  set('ci-r-val',fmt(total));
+  set('ci-r-sub',`After ${years} years at ${rate}% annual rate`);
+  rows('ci-r-rows',[
+    ['Total deposited',fmt(totalIn),''],
+    ['Interest earned',fmt(gain),'accent'],
+    ['Growth multiplier',(total/totalIn).toFixed(2)+'×','accent'],
+    ['Starting amount',fmt(p),''],
+    ['Monthly contribution',fmt(monthly),''],
+  ]);
+}
+
+// ===== BUDGET =====
+function renderBudget(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('bud-income','Monthly take-home pay (after tax)','5000','number','1','$')}
+    ${inp('bud-needs','Needs % (housing, food, utilities)','50','number','1')}
+    ${inp('bud-wants','Wants % (dining, entertainment)','30','number','1')}
+    ${inp('bud-save','Savings & debt % (retirement, emergency)','20','number','1')}
+    ${btn('calcBudget()')}
+  `,'bud-r');
+  calcBudget();
+}
+function calcBudget(){
+  const income=+v('bud-income')||0,needsPct=+v('bud-needs')||50,wantsPct=+v('bud-wants')||30,savePct=+v('bud-save')||20;
+  const total=needsPct+wantsPct+savePct;
+  const needs=income*needsPct/100,wants=income*wantsPct/100,save=income*savePct/100;
+  set('bud-r-label','Monthly savings target');
+  set('bud-r-val',fmt(save));
+  set('bud-r-sub',`${savePct}% of take-home pay`);
+  rows('bud-r-rows',[
+    ['Needs ('+needsPct+'%)',fmt(needs),''],
+    ['  Est. housing (30%)',fmt(income*0.30),''],
+    ['  Food (10%)',fmt(income*0.10),''],
+    ['Wants ('+wantsPct+'%)',fmt(wants),''],
+    ['Savings & debt ('+savePct+'%)',fmt(save),'accent'],
+    [total!==100?'⚠ Must equal 100%':'✓ Budget balanced',total+'%',total===100?'accent':'danger'],
+  ]);
+}
+
+// ===== EMERGENCY FUND =====
+function renderEmergency(id){
+  const w=document.getElementById('calc-body-'+id);
+  w.innerHTML=calcShell(id,`
+    ${inp('ef-housing','Monthly housing (rent/mortgage)','1400','number','1','$')}
+    ${inp('ef-utilities','Monthly utilities & subscriptions','200','number','1','$')}
+    ${inp('ef-food','Monthly food & groceries','600','number','1','$')}
+    ${inp('ef-transport','Monthly transportation','300','number','1','$')}
+    ${inp('ef-insurance','Monthly insurance (health, car)','250','number','1','$')}
+    ${inp('ef-other','Other monthly essentials','200','number','1','$')}
+    ${sel('ef-months','Months of coverage',[['3','3 months (minimum)'],['6','6 months (recommended)'],['9','9 months (conservative)']],'calcEF()')}
+    ${btn('calcEF()')}
+  `,'ef-r');
+  calcEF();
+}
+function calcEF(){
+  const housing=+v('ef-housing')||0,util=+v('ef-utilities')||0,food=+v('ef-food')||0;
+  const transport=+v('ef-transport')||0,ins=+v('ef-insurance')||0,other=+v('ef-other')||0;
+  const months=+v('ef-months')||6;
+  const monthly=housing+util+food+transport+ins+other;
+  const goal=monthly*months;
+  set('ef-r-label',`${months}-month emergency fund`);
+  set('ef-r-val',fmt(goal));
+  set('ef-r-sub','Minimum needed in a high-yield savings account');
+  rows('ef-r-rows',[
+    ['Monthly essential expenses',fmt(monthly),''],
+    ['3-month minimum',fmt(monthly*3),''],
+    ['6-month recommended',fmt(monthly*6),'accent'],
+    ['9-month conservative',fmt(monthly*9),''],
+    ['Save per month to reach 6mo in 1yr',fmt(monthly*6/12),''],
+  ]);
+}
+
+// DOM helpers
+function v(id){const el=document.getElementById(id);return el?el.value:'';}
+function set(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
+
+// ===== SEARCH =====
+const ALL_CALCS_SEARCH = Object.entries(CALCS).map(([id,c])=>({id,name:c.name,tag:c.tag,desc:c.desc}));
+function handleSearch(q){if(q.length>1&&q.length<3)return;}
+function doSearch(){
+  const q=document.getElementById('search-input').value.toLowerCase().trim();
+  if(!q)return;
+  const results=ALL_CALCS_SEARCH.filter(c=>c.name.toLowerCase().includes(q)||c.tag.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q));
+  document.getElementById('search-title').textContent=`Results for "${q}" (${results.length} found)`;
+  document.getElementById('search-list').innerHTML=results.length?results.map(c=>`<div class="search-result-item" onclick="showCalc('${c.id}')"><div class="sri-title">${c.name}</div><div class="sri-desc">${c.tag} — ${c.desc}</div></div>`).join(''):'<p style="color:var(--text3)">No calculators matched. Try "mortgage", "tax", or "budget".</p>';
+  showPage('search');
+}
+document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+
+// ===== BLOG DATA =====
+const POSTS = [
+  {
+    id:'mortgage-guide-2024',
+    cat:'Mortgage',
+    title:'How to Calculate Your Mortgage Payment: A Complete 2024 Guide',
+    excerpt:'Understanding your monthly mortgage payment means knowing more than just principal and interest. Learn how taxes, insurance, and PMI affect what you actually pay each month.',
+    date:'December 2, 2024',
+    read:'8 min read',
+    related:'mortgage',
+    content: `
+      <div class="blog-cat">Mortgage</div>
+      <h1>How to Calculate Your Mortgage Payment: A Complete 2024 Guide</h1>
+      <p class="post-meta">December 2, 2024 · 8 min read</p>
+      <p>Your mortgage payment is one of the biggest financial commitments you'll ever make. Understanding exactly what goes into it — and how to keep it affordable — can save you thousands over the life of your loan.</p>
+      <h2>The PITI formula: What your mortgage really costs</h2>
+      <p>Most people think of a mortgage payment as just principal + interest. But your actual monthly payment has four components, known as PITI:</p>
+      <ul>
+        <li><strong>Principal</strong> — the portion that reduces your loan balance</li>
+        <li><strong>Interest</strong> — the cost of borrowing money</li>
+        <li><strong>Taxes</strong> — property taxes, typically escrowed monthly</li>
+        <li><strong>Insurance</strong> — homeowner's insurance, also escrowed</li>
+      </ul>
+      <div class="callout"><p>📌 If your down payment is less than 20%, you'll also pay <strong>PMI (Private Mortgage Insurance)</strong>, typically 0.5%–1.5% of your loan amount per year.</p></div>
+      <h2>The mortgage payment formula</h2>
+      <p>The principal and interest portion is calculated using this formula:</p>
+      <p><strong>M = P × [r(1+r)^n] / [(1+r)^n - 1]</strong></p>
+      <p>Where: P = loan amount, r = monthly interest rate, n = number of payments.</p>
+      <h2>2024 mortgage rates: What to expect</h2>
+      <table class="data-table">
+        <tr><th>Loan type</th><th>Avg. rate (2024)</th><th>Monthly payment*</th></tr>
+        <tr><td>30-year fixed</td><td>6.8%–7.2%</td><td>$655–$675</td></tr>
+        <tr><td>15-year fixed</td><td>6.1%–6.4%</td><td>$850–$870</td></tr>
+        <tr><td>5/1 ARM</td><td>6.0%–6.3%</td><td>$600–$620</td></tr>
+      </table>
+      <p style="font-size:12px;color:var(--text3)">*Per $100,000 borrowed</p>
+      <div class="cta-inline">
+        <h4>🏠 Try our free Mortgage Calculator</h4>
+        <p>Enter your home price, down payment, and interest rate to see your exact monthly payment, total interest, and full amortization schedule.</p>
+        <button class="aff-btn" onclick="showCalc('mortgage')">Calculate my mortgage →</button>
+      </div>
+      <h2>How to get the lowest rate</h2>
+      <ul>
+        <li>Improve your credit score above 740 before applying</li>
+        <li>Put at least 20% down to avoid PMI</li>
+        <li>Compare at least 3–5 lenders — rates vary significantly</li>
+        <li>Consider buying points to lower your rate</li>
+        <li>Get pre-approved, not just pre-qualified</li>
+      </ul>
+      <h2>The 28% rule</h2>
+      <p>Most financial advisors recommend keeping your total housing costs (PITI) at or below <strong>28% of your gross monthly income</strong>. On a $90,000 annual salary, that's $2,100/month in housing costs.</p>
+    `
+  },
+  {
+    id:'tax-brackets-2024',
+    cat:'Tax',
+    title:'2024 Federal Tax Brackets Explained: How Much Will You Actually Pay?',
+    excerpt:'Tax brackets are widely misunderstood. Many Americans think that earning more pushes all their income into a higher bracket. Here\'s how marginal tax rates actually work.',
+    date:'November 28, 2024',
+    read:'6 min read',
+    related:'tax',
+    content:`
+      <div class="blog-cat">Tax</div>
+      <h1>2024 Federal Tax Brackets Explained</h1>
+      <p class="post-meta">November 28, 2024 · 6 min read</p>
+      <p>One of the most persistent myths in personal finance is that earning more money can leave you with less take-home pay because it "pushes you into a higher tax bracket." This is not how the US tax system works.</p>
+      <h2>How marginal tax rates actually work</h2>
+      <p>The US uses a <strong>progressive tax system</strong>. Only the income above each bracket threshold is taxed at that rate — not all your income. If you earn $50,000 as a single filer, you don't pay 22% on all $50,000.</p>
+      <h2>2024 Federal income tax brackets (single filers)</h2>
+      <table class="data-table">
+        <tr><th>Tax rate</th><th>Income range</th><th>Tax on this bracket</th></tr>
+        <tr><td>10%</td><td>$0 – $11,600</td><td>Up to $1,160</td></tr>
+        <tr><td>12%</td><td>$11,601 – $47,150</td><td>Up to $4,266</td></tr>
+        <tr><td>22%</td><td>$47,151 – $100,525</td><td>Up to $11,743</td></tr>
+        <tr><td>24%</td><td>$100,526 – $191,950</td><td>Up to $21,947</td></tr>
+        <tr><td>32%</td><td>$191,951 – $243,725</td><td>Up to $16,566</td></tr>
+        <tr><td>35%</td><td>$243,726 – $609,350</td><td>Up to $128,003</td></tr>
+        <tr><td>37%</td><td>Over $609,350</td><td>37% on remainder</td></tr>
+      </table>
+      <div class="callout"><p>📌 The 2024 standard deduction is <strong>$14,600 for single filers</strong> and <strong>$29,200 for married couples</strong>. This reduces your taxable income before brackets apply.</p></div>
+      <h2>Marginal vs effective tax rate</h2>
+      <p>Your <strong>marginal rate</strong> is the rate on your last dollar of income. Your <strong>effective rate</strong> is your actual total tax divided by your total income. A person earning $75,000 single has a 22% marginal rate but pays only about 12–13% effectively.</p>
+      <div class="cta-inline">
+        <h4>📋 Calculate your exact 2024 tax bill</h4>
+        <p>Our free federal tax calculator uses real 2024 IRS brackets and shows your marginal rate, effective rate, and monthly tax estimate.</p>
+        <button class="aff-btn" onclick="showCalc('tax')">Calculate my taxes →</button>
+      </div>
+      <h2>Legal ways to reduce your tax bill</h2>
+      <ul>
+        <li><strong>Maximize your 401(k)</strong> — contributions reduce taxable income dollar for dollar ($23,000 limit in 2024)</li>
+        <li><strong>Open a traditional IRA</strong> — deductible if you qualify ($7,000 limit)</li>
+        <li><strong>HSA contributions</strong> — triple tax advantage for health spending ($4,150 individual, $8,300 family)</li>
+        <li><strong>Tax-loss harvesting</strong> — offset capital gains with investment losses</li>
+      </ul>
+    `
+  },
+  {
+    id:'compound-interest-power',
+    cat:'Investing',
+    title:'Why Einstein Called Compound Interest the 8th Wonder of the World',
+    excerpt:'A 25-year-old who saves $400/month will retire with far more than a 35-year-old saving $800/month. The math behind compounding explains why starting early matters more than saving more.',
+    date:'November 20, 2024',
+    read:'5 min read',
+    related:'compound',
+    content:`
+      <div class="blog-cat">Investing</div>
+      <h1>Why Compound Interest Is the Most Powerful Force in Personal Finance</h1>
+      <p class="post-meta">November 20, 2024 · 5 min read</p>
+      <p>If you invested $10,000 at age 25 and never touched it, at 7% annual return you'd have over $149,000 by age 65. Wait until 35 to invest the same amount and you'd end up with just $76,000. Same money, 10 fewer years — half the result.</p>
+      <h2>How compound interest actually works</h2>
+      <p>Simple interest earns returns only on your principal. <strong>Compound interest earns returns on your returns</strong>. Each year, your interest becomes part of the balance that earns next year's interest. Over decades, this creates an exponential curve that feels invisible in the early years and overwhelming in the later ones.</p>
+      <h2>The rule of 72</h2>
+      <p>Divide 72 by your annual return rate to find how many years it takes to double your money:</p>
+      <table class="data-table">
+        <tr><th>Annual return</th><th>Years to double</th></tr>
+        <tr><td>4% (savings account)</td><td>18 years</td></tr>
+        <tr><td>7% (stock market avg.)</td><td>10.3 years</td></tr>
+        <tr><td>10% (aggressive growth)</td><td>7.2 years</td></tr>
+      </table>
+      <div class="callout"><p>📌 The S&P 500 has averaged roughly <strong>10% annually</strong> before inflation (about 7% after) over the past century. Past performance doesn't guarantee future results.</p></div>
+      <div class="cta-inline">
+        <h4>📊 See your money grow with our calculator</h4>
+        <p>Enter your starting amount, monthly contribution, and interest rate to see exactly how your wealth compounds over time.</p>
+        <button class="aff-btn" onclick="showCalc('compound')">Try compound calculator →</button>
+      </div>
+      <h2>Three numbers that determine your wealth</h2>
+      <ul>
+        <li><strong>How much you save</strong> — even $100/month makes a difference</li>
+        <li><strong>Your return rate</strong> — keeping fees low matters enormously</li>
+        <li><strong>Time</strong> — the variable that can't be bought back</li>
+      </ul>
+      <p>A 1% annual fee on a $100,000 portfolio over 30 years costs you over $90,000 in lost compounding. This is why low-cost index funds consistently beat actively managed funds over the long term.</p>
+    `
+  },
+  {
+    id:'401k-max-2024',
+    cat:'Retirement',
+    title:'How to Max Out Your 401(k) in 2024 (And Why You Should)',
+    excerpt:'The 2024 401(k) contribution limit is $23,000. Here\'s exactly how to reach it on different salaries, what employer matching means in real dollars, and why it\'s the most tax-efficient thing you can do.',
+    date:'November 10, 2024',
+    read:'7 min read',
+    related:'invest',
+    content:`
+      <div class="blog-cat">Retirement</div>
+      <h1>How to Max Out Your 401(k) in 2024</h1>
+      <p class="post-meta">November 10, 2024 · 7 min read</p>
+      <p>Contributing to your 401(k) is one of the best financial decisions you can make. You reduce your current tax bill, get free money from your employer, and let compound interest do the heavy lifting for decades.</p>
+      <h2>2024 contribution limits</h2>
+      <table class="data-table">
+        <tr><th>Who</th><th>2024 limit</th></tr>
+        <tr><td>Employee (under 50)</td><td>$23,000</td></tr>
+        <tr><td>Employee (50 or older)</td><td>$30,500 (catch-up)</td></tr>
+        <tr><td>Total (employee + employer)</td><td>$69,000</td></tr>
+      </table>
+      <h2>The real value of employer matching</h2>
+      <p>If your employer matches 3% of your $80,000 salary, that's <strong>$2,400 in free money per year</strong>. Not capturing the full match is literally leaving part of your salary on the table. Always contribute at least enough to get the full match.</p>
+      <div class="cta-inline">
+        <h4>🏦 Project your 401(k) balance at retirement</h4>
+        <p>Our calculator shows exactly how much you'll have at retirement based on your salary, contribution rate, employer match, and expected returns.</p>
+        <button class="aff-btn" onclick="showCalc('invest')">Calculate my 401(k) →</button>
+      </div>
+      <h2>Traditional vs Roth 401(k)</h2>
+      <ul>
+        <li><strong>Traditional 401(k)</strong> — contributions reduce taxable income now; pay taxes in retirement. Best if you expect a lower tax rate in retirement.</li>
+        <li><strong>Roth 401(k)</strong> — pay taxes now; withdrawals in retirement are tax-free. Best if you expect a higher tax rate in retirement.</li>
+      </ul>
+      <p>For most people under 40, the Roth option is worth considering — your income (and therefore tax rate) is likely to increase over your career.</p>
+    `
+  },
+  {
+    id:'debt-payoff-strategies',
+    cat:'Debt',
+    title:'Debt Avalanche vs Snowball: Which Payoff Strategy Saves You More?',
+    excerpt:'The avalanche method minimizes interest paid. The snowball method maximizes motivation. The right answer depends on your personality — here\'s the math on both.',
+    date:'October 30, 2024',
+    read:'5 min read',
+    related:'debtpayoff',
+    content:`
+      <div class="blog-cat">Debt</div>
+      <h1>Debt Avalanche vs Snowball: Which Strategy Wins?</h1>
+      <p class="post-meta">October 30, 2024 · 5 min read</p>
+      <p>If you have multiple debts — credit cards, a car loan, student loans — the order in which you pay them off has a significant impact on how much interest you pay and how quickly you become debt-free.</p>
+      <h2>The Avalanche Method (mathematically optimal)</h2>
+      <p>Pay minimum payments on all debts, then throw every extra dollar at the <strong>highest interest rate debt first</strong>. Once it's paid off, move to the next highest. This minimizes total interest paid over the life of your debt.</p>
+      <h2>The Snowball Method (psychologically effective)</h2>
+      <p>Pay minimum payments on all debts, then attack the <strong>smallest balance first</strong> regardless of interest rate. Once it's gone, roll that payment to the next smallest. This creates quick wins and builds momentum.</p>
+      <table class="data-table">
+        <tr><th>Method</th><th>Interest paid</th><th>Motivation</th><th>Best for</th></tr>
+        <tr><td>Avalanche</td><td>Lowest</td><td>Delayed rewards</td><td>Math-driven people</td></tr>
+        <tr><td>Snowball</td><td>Higher</td><td>Quick wins</td><td>Motivation-driven people</td></tr>
+      </table>
+      <div class="callout"><p>📌 Research from Harvard Business Review shows that the snowball method leads to <strong>higher debt repayment rates in practice</strong> — because people actually stick to it.</p></div>
+      <div class="cta-inline">
+        <h4>💳 Compare both strategies with your real debts</h4>
+        <p>Enter your debts and see exactly how much interest each method costs you and when you'll be debt-free.</p>
+        <button class="aff-btn" onclick="showCalc('debtpayoff')">Compare debt strategies →</button>
+      </div>
+      <h2>Which should you choose?</h2>
+      <p>If the interest rate difference is large (e.g., 25% credit card vs 5% student loan), use avalanche — the savings are too significant to ignore. If rates are similar, use snowball — the psychological boost is worth more than the small interest difference.</p>
+    `
+  },
+  {
+    id:'emergency-fund-guide',
+    cat:'Budgeting',
+    title:'How Much Should Your Emergency Fund Be? The 2024 Guide',
+    excerpt:'Three months or six months? The right answer depends on your job security, dependents, and health situation. Here\'s how to calculate your personal number.',
+    date:'October 18, 2024',
+    read:'4 min read',
+    related:'emergency',
+    content:`
+      <div class="blog-cat">Budgeting</div>
+      <h1>How Much Should Your Emergency Fund Be?</h1>
+      <p class="post-meta">October 18, 2024 · 4 min read</p>
+      <p>An emergency fund is the foundation of any solid financial plan. Without one, any unexpected expense — a medical bill, car repair, job loss — turns into debt. But how much is enough?</p>
+      <h2>The general rule: 3–6 months</h2>
+      <p>Most financial advisors recommend enough savings to cover <strong>3 to 6 months of essential living expenses</strong>. Not your full income — just the non-negotiable monthly costs: housing, utilities, food, transportation, and minimum debt payments.</p>
+      <h2>When you need more than 6 months</h2>
+      <ul>
+        <li>You're self-employed or have variable income</li>
+        <li>You work in a volatile industry (tech, real estate, construction)</li>
+        <li>You have dependents or a single income household</li>
+        <li>You have chronic health issues</li>
+        <li>Your skills are highly specialized (longer job search if laid off)</li>
+      </ul>
+      <div class="cta-inline">
+        <h4>🛡️ Calculate your exact emergency fund target</h4>
+        <p>Enter your monthly essential expenses and we'll show you the 3, 6, and 9-month targets — and how much to save each month to get there.</p>
+        <button class="aff-btn" onclick="showCalc('emergency')">Calculate my emergency fund →</button>
+      </div>
+      <h2>Where to keep your emergency fund</h2>
+      <p>Your emergency fund should be: accessible (not locked up in a CD or investment), safe (FDIC-insured), and earning interest. High-yield savings accounts (HYSAs) currently offer 4–5% APY — far better than the 0.01% at most big banks.</p>
+    `
+  },
+];
+
+// Build blog grid
+function buildBlog(){
+  const grid=document.getElementById('blog-grid');
+  if(!grid)return;
+  grid.innerHTML=POSTS.map(p=>`
+    <article class="blog-card" onclick="showPost('${p.id}')" role="button" tabindex="0">
+      <div class="blog-cat">${p.cat}</div>
+      <h2 class="blog-title">${p.title}</h2>
+      <p class="blog-excerpt">${p.excerpt}</p>
+      <div class="blog-meta">
+        <span>${p.date}</span>
+        <span class="blog-read-time">${p.read}</span>
+      </div>
+    </article>`).join('');
+}
+
+function showPost(id){
+  const post=POSTS.find(p=>p.id===id);
+  if(!post)return;
+  const el=document.getElementById('post-content');
+  el.innerHTML=`
+    <button class="back-btn" onclick="showPage('blog')">← All articles</button>
+    <div class="ad-slot" style="margin-bottom:24px"><div><div class="ad-label">Advertisement</div>AdSense 728×90 — Replace with AdSense tag</div></div>
+    ${post.content}
+    <div class="ad-slot" style="margin-top:32px"><div><div class="ad-label">Advertisement</div>AdSense 300×250 — Replace with AdSense tag</div></div>
+    <div class="related-section">
+      <div class="related-title">Try the calculator mentioned in this article</div>
+      <div class="related-grid">
+        <div class="related-card" onclick="showCalc('${post.related}')">
+          <div class="related-card-name">${CALCS[post.related]?.name||''}</div>
+          <div class="related-card-desc">Free calculator</div>
+        </div>
+      </div>
+    </div>`;
+  showPage('post');
+  // Update schema for blog post
+  document.title = post.title + ' — FinCalc Pro';
+}
+
+// ===== SCHEMA UPDATES =====
+function updateCalcSchema(id, c){
+  document.title = c.name + ' — Free USA Calculator | FinCalc Pro';
+  let existing=document.getElementById('calc-schema');
+  if(!existing){existing=document.createElement('script');existing.id='calc-schema';existing.type='application/ld+json';document.head.appendChild(existing);}
+  existing.textContent=JSON.stringify({"@context":"https://schema.org","@type":"WebApplication","name":c.name,"applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":c.desc});
+}
+function updateSchema(id){
+  document.title = id==='home'?'FinCalc Pro — Free USA Financial Calculators 2024':
+    id==='blog'?'Financial Blog & Guides — FinCalc Pro':
+    'FinCalc Pro — Free USA Financial Calculators';
+}
+
+// ===== NEWSLETTER =====
+function submitNewsletter(){
+  const email=document.getElementById('nl-email').value;
+  if(!email||!email.includes('@'))return;
+  document.getElementById('nl-msg').style.display='block';
+  document.getElementById('nl-email').value='';
+  // Hook up to Mailchimp/ConvertKit endpoint here
+}
+
+// ===== INIT =====
+buildBlog();
+</script>
+</body>
+</html>
